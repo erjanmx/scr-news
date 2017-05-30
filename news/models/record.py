@@ -9,6 +9,7 @@ class Record():
 		'kloop': 2,
 		'akipress': 3,
 		'twentyfour': 4,
+		'knews': 5,
 	}
 
 	def __init__(self, source, title, url):
