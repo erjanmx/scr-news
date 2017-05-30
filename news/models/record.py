@@ -8,6 +8,7 @@ class Record():
 		'zanoza': 1,
 		'kloop': 2,
 		'akipress': 3,
+		'twentyfour': 4,
 	}
 
 	def __init__(self, source, title, url):
