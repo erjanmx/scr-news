@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import re
-from base import BaseSpider
+from .base import BaseSpider
 from scrapy.spiders import Rule
 from scrapy.linkextractors import LinkExtractor
 
@@ -9,10 +9,10 @@ class AkipressSpider(BaseSpider):
     name = 'akipress'
 
     allowed_domains = ['kg.akipress.org']
-    start_urls = ['http://kg.akipress.org/']
+    start_urls = ['http://kg.akipress.org/cat:5']
 
     rules = (
-        Rule(LinkExtractor(allow=('http://kg.akipress.org/news:[\d]+$')), callback="parse_articles", follow=True),
+        Rule(LinkExtractor(allow=('http://kg.akipress.org/news:[\d]+$')), callback="parse_articles", follow=False),
     )
 
     def extractTags(self, response):

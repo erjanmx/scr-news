@@ -1,12 +1,17 @@
 # -*- coding: utf-8 -*-
-from record import Record
+import requests
+from ..models import record
 from scrapy.spiders import CrawlSpider
 
 class BaseSpider(CrawlSpider):
+    response = None
 
     def parse_articles(self, response):
-        r = Record(source=self.name, title=self.extractTitle(response), url=self.extractUrl(response))
+        self.response = response
 
+        r = Record(source=self.name, title=self.extractTitle(response), url=self.extractUrl(response))
+        r.description = self.extract_description()
+        r.media_image = self.extract_media()
         tags = self.extractTags(response)
         r.setTags(tags)
 
@@ -19,3 +24,8 @@ class BaseSpider(CrawlSpider):
     def extractTitle(self, response):
         return response.css('title::text').extract_first()
 
+    def extract_description(self):
+        return self.response.xpath("//meta[@property='og:description']/@content").extract_first()
+
+    def extract_media(self):
+        return self.response.xpath("//meta[@property='og:image']/@content").extract_first()
