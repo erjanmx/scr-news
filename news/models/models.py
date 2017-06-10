@@ -1,4 +1,4 @@
-from config import Model
+from .config import Model
 from orator.orm import belongs_to_many
 
 class Tag(Model):
@@ -7,6 +7,7 @@ class Tag(Model):
 
 
 class Article(Model):
+    __timestamps__ = False
     __fillable__ = ['source_id', 'url', 'title']
   
     @belongs_to_many
