@@ -2,12 +2,11 @@ import shortuuid
 import datetime
 import requests
 import pytz
-import json
 
 from .models import Article, Tag
 
 
-class Record():
+class Record:
     description = ''
     media_image = ''
     tags = []
