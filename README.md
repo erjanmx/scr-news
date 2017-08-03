@@ -1,7 +1,7 @@
 # scr-news
 
 Scrapy spider for collecting news from several sources such as
-- zanoza.kg
+- kaktus.media (zanoza.kg)
 - knews.kg
 - kloop.kg
 - akipress.org
