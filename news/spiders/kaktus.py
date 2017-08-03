@@ -4,14 +4,14 @@ from scrapy.spiders import Rule
 from scrapy.linkextractors import LinkExtractor
 
 
-class ZanozaSpider(BaseSpider):
-    name = 'zanoza'
+class KaktusSpider(BaseSpider):
+    name = 'kaktus'
 
-    allowed_domains = ['zanoza.kg']
-    start_urls = ['http://zanoza.kg/']
+    allowed_domains = ['kaktus.media']
+    start_urls = ['http://kaktus.media/']
 
     rules = (
-        Rule(LinkExtractor(allow=('http://zanoza.kg/doc/*')), callback="parse_articles", follow=False),
+        Rule(LinkExtractor(allow=('http://kaktus.media/doc/*')), callback="parse_articles", follow=False),
     )
 
     def extractTags(self, response):

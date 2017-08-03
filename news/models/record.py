@@ -13,7 +13,7 @@ class Record():
     tags = []
 
     sources = {
-        'zanoza': 1,
+        'kaktus': 1,
         'kloop': 2,
         'akipress': 3,
         'twentyfour': 4,
