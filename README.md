@@ -7,6 +7,11 @@ Scrapy spider for collecting news from several sources such as
 - akipress.org
 - 24.kg
 
+# Web interface
+
+Web interface's source code is available in [scr-news-web](https://github.com/erjanmx/scr-news-web) repository
+
+
 # Installation
 
 Project requires python 3.5 or higher
