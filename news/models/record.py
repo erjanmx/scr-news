@@ -4,16 +4,17 @@ import requests
 import pytz
 import json
 
-from .models import Article, Tag
+from .models import Article, Tag, ArticlesBody
 
 
 class Record():
+    content = ''
     description = ''
     media_image = ''
     tags = []
 
     sources = {
-        'kaktus': 1,
+        'zanoza': 1,
         'kloop': 2,
         'akipress': 3,
         'twentyfour': 4,
@@ -43,7 +44,7 @@ class Record():
 
         article.description = self.description
         article.media_image = self.media_image
-        article.facebook_shared = self.get_facebook_shares()
+        # article.facebook_shared = self.get_facebook_shares()
 
         article.created_at = datetime.datetime.now(pytz.timezone('Asia/Bishkek'))
 
@@ -51,6 +52,8 @@ class Record():
             try:
                 article.in_url = shortuuid.uuid()
                 article.save()
+
+                ArticlesBody.first_or_create(article_id=article.id, content=self.content)
                 break
             except Exception:
                 pass

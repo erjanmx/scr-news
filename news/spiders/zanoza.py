@@ -4,8 +4,8 @@ from scrapy.spiders import Rule
 from scrapy.linkextractors import LinkExtractor
 
 
-class KaktusSpider(BaseSpider):
-    name = 'kaktus'
+class ZanozaSpider(BaseSpider):
+    name = 'zanoza'
 
     allowed_domains = ['kaktus.media']
     start_urls = ['https://kaktus.media/']
